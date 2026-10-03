@@ -238,6 +238,45 @@ document.querySelectorAll(".copy").forEach((btn) => {
   });
 });
 
+// ------------------------------------------------------------------ theme
+//
+// Three states: no attribute follows the system (the default), and data-theme="light" or "dark" is the
+// visitor's own pick, remembered in localStorage. The script in <head> applies it before first paint.
+
+const THEME_KEY = "nunya-theme";
+const THEME_NEXT = { system: "light", light: "dark", dark: "system" };
+const THEME_COLOR = { light: "#eef1f7", dark: "#090d1a" };
+const themeButton = document.getElementById("theme-toggle");
+const themeMetas = [...document.querySelectorAll('meta[name="theme-color"]')];
+
+function currentTheme() {
+  return document.documentElement.dataset.theme || "system";
+}
+
+function applyTheme(theme) {
+  const root = document.documentElement;
+  if (theme === "system") delete root.dataset.theme;
+  else root.dataset.theme = theme;
+
+  try {
+    if (theme === "system") localStorage.removeItem(THEME_KEY);
+    else localStorage.setItem(THEME_KEY, theme);
+  } catch {}
+
+  // The browser bar colour: per scheme when following the system, the picked one otherwise.
+  themeMetas.forEach((meta) => {
+    const scheme = /dark/.test(meta.media) ? "dark" : "light";
+    meta.content = THEME_COLOR[theme === "system" ? scheme : theme];
+  });
+
+  const label = `Theme: ${theme}. Switch to ${THEME_NEXT[theme]}`;
+  themeButton.setAttribute("aria-label", label);
+  themeButton.title = label;
+}
+
+themeButton.addEventListener("click", () => applyTheme(THEME_NEXT[currentTheme()]));
+applyTheme(currentTheme());
+
 // ------------------------------------------------------------------ nav
 
 const nav = document.querySelector(".nav");
