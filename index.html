@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nunya — a VPN client that tells you plainly what it's doing</title>
+  <meta name="description" content="Nunya is a free, open-source VPN and proxy client for macOS, Windows and Linux. VLESS, VMess, Trojan and WireGuard, subscriptions and QR codes. No account, no telemetry.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#eef1f7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#090d1a" media="(prefers-color-scheme: dark)">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Nunya — safe, fast, reliable, secure and easy VPN client">
+  <meta property="og:description" content="One app for your VPN and proxy configs, from a single link to a subscription of hundreds. No account, no telemetry.">
+  <meta property="og:image" content="assets/screenshots/main-dark.png">
+
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" id="top">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="Nunya, back to top">
+        <img src="assets/logo.png" width="32" height="32" alt="">
+        <span>Nunya</span>
+      </a>
+      <nav aria-label="Main">
+        <ul class="nav-links">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#modes">VPN or proxy</a></li>
+          <li><a href="#privacy">Privacy</a></li>
+          <li><a href="#download">Download</a></li>
+          <li><a href="#guide">Install guide</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn-ghost btn-sm nav-gh" href="https://github.com/nunyavpn/nunya" rel="noopener">
+        <svg aria-hidden="true" viewBox="0 0 16 16" width="16" height="16"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============================================================ hero -->
+    <section class="hero">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="wrap hero-inner">
+        <p class="eyebrow"><span class="pill pill-warn">Beta</span> <span data-version-label>Free and open source</span></p>
+        <h1>A VPN client that tells you <span class="grad">plainly</span> what it's doing.</h1>
+        <p class="lede">
+          Nunya connects you through the VPN and proxy servers you already have — a link your provider
+          sent, a subscription of hundreds, or a WireGuard config — and tests every one of them for real.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary btn-lg" id="hero-download" href="#download">
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>
+            <span id="hero-download-label">Download Nunya</span>
+          </a>
+          <a class="btn btn-ghost btn-lg" href="#guide">How to install</a>
+        </div>
+        <p class="hero-meta" id="hero-meta">macOS · Windows · Linux &nbsp;—&nbsp; no account, no telemetry</p>
+
+        <figure class="hero-shot">
+          <picture>
+            <source media="(prefers-color-scheme: dark)" srcset="assets/screenshots/main-dark.png">
+            <img src="assets/screenshots/main.png" width="1040" height="744"
+                 alt="Nunya connected through a server in Helsinki: the server list, the route on the map, and the status card with live traffic">
+          </picture>
+          <figcaption>Screenshots show made-up example servers.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============================================================ pillars -->
+    <section class="section" id="why" aria-labelledby="why-h">
+      <div class="wrap">
+        <h2 class="section-title" id="why-h">Why Nunya</h2>
+        <p class="section-lede">Five promises, and the app keeps each of them visibly.</p>
+        <div class="pillars">
+          <article class="pillar">
+            <div class="pillar-icon tone-live" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.8-7 9-4-1.2-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+            </div>
+            <h3>Safe</h3>
+            <p>Never claims more than it covers. In proxy mode it tells you exactly which apps are covered, and which aren't.</p>
+          </article>
+          <article class="pillar">
+            <div class="pillar-icon tone-brand" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg>
+            </div>
+            <h3>Fast</h3>
+            <p>Every server is tested end to end. Quick Connect takes you to the fastest, the most used or the most recent.</p>
+          </article>
+          <article class="pillar">
+            <div class="pillar-icon tone-warn" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg>
+            </div>
+            <h3>Reliable</h3>
+            <p>A server only counts as working if traffic actually gets through. The shield turns red when nothing comes out.</p>
+          </article>
+          <article class="pillar">
+            <div class="pillar-icon tone-brand" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg>
+            </div>
+            <h3>Secure</h3>
+            <p>No account and no telemetry. Your servers stay on your device, and the engine is a verified release.</p>
+          </article>
+          <article class="pillar">
+            <div class="pillar-icon tone-live" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+            </div>
+            <h3>Easy</h3>
+            <p>Paste a link or a subscription, scan a QR code, and connect. That's the whole setup.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ features -->
+    <section class="section section-alt" id="features" aria-labelledby="features-h">
+      <div class="wrap">
+        <h2 class="section-title" id="features-h">A tour of the app</h2>
+        <p class="section-lede">Everything you need day to day, and nothing pretending to be more than it is.</p>
+
+        <div class="feature">
+          <div class="feature-text">
+            <span class="kicker">Adding servers</span>
+            <h3>Every kind of link, in one box.</h3>
+            <p>Press <b>+</b> and paste whatever your provider gave you. One paste can hold several things at once, and Nunya sorts them before anything is added.</p>
+            <ul class="ticks">
+              <li>Share links: <code>vless://</code>, <code>vmess://</code>, <code>trojan://</code>, <code>wireguard://</code></li>
+              <li>Subscriptions, including Xray, sing-box and Clash configurations</li>
+              <li>WireGuard configs, QR codes from a screenshot, or a server filled in by hand</li>
+            </ul>
+            <p class="muted">Anything Nunya can't run yet is named, with the reason — never silently dropped.</p>
+          </div>
+          <figure class="feature-shot"><img src="assets/screenshots/add-servers.png" loading="lazy" width="476" height="608" alt="The Add servers sheet, having found a subscription, a WireGuard config and a VLESS server in pasted text"></figure>
+        </div>
+
+        <div class="feature feature-rev">
+          <div class="feature-text">
+            <span class="kicker">Quick Connect</span>
+            <h3>Choose by what matters this time.</h3>
+            <ul class="ticks">
+              <li><b>Fastest</b> — the lowest latency among servers that passed their last test, re-tested first if the result is old.</li>
+              <li><b>Most used</b> — the server that carried the most data in the last 30 days.</li>
+              <li><b>Most recent</b> — the one you were last connected to.</li>
+            </ul>
+            <p class="muted">Each server is located by where its traffic really exits, not by its name. Relays and CDN-fronted servers are marked as such.</p>
+          </div>
+          <figure class="feature-shot"><img src="assets/screenshots/quick-connect.png" loading="lazy" width="476" height="372" alt="The Quick Connect prompt offering the fastest, the most used and the most recent server"></figure>
+        </div>
+
+        <div class="feature">
+          <div class="feature-text">
+            <span class="kicker">In the menu bar</span>
+            <h3>See the connection with the window closed.</h3>
+            <p>A shield in the macOS menu bar or the Linux top bar shows the state in the status colours — green connected, amber connecting, red not working, dimmed off.</p>
+            <p>On a Mac, click it for a panel with a big on/off button, Quick Connect, a search over your configs, the Proxy / VPN switch, and the ad blocker and anti-tracker.</p>
+          </div>
+          <figure class="feature-shot feature-shot-narrow"><img src="assets/screenshots/popover.png" loading="lazy" width="368" height="668" alt="The menu-bar popover: Proxy running on FI-1 Helsinki with a Disconnect button, Quick Connect, and the mode and blocker switches"></figure>
+        </div>
+
+        <div class="feature feature-rev">
+          <div class="feature-text">
+            <span class="kicker">Usage</span>
+            <h3>What each server has carried, day by day.</h3>
+            <p>The last 30 days and all time, a daily chart, and for a subscription each server's share — beside what your provider reports. Counted on your device only.</p>
+          </div>
+          <figure class="feature-shot"><img src="assets/screenshots/usage.png" loading="lazy" width="476" height="696" alt="The usage of a subscription: totals for 30 days and all time, a daily chart, and a breakdown by server"></figure>
+        </div>
+
+        <div class="feature">
+          <div class="feature-text">
+            <span class="kicker">Sharing</span>
+            <h3>Send a server to another device.</h3>
+            <p>As a link or a QR code, or as a WireGuard config the official WireGuard apps can scan. A share link holds the server's credentials, so share it only with people you'd give access to.</p>
+          </div>
+          <figure class="feature-shot"><img src="assets/screenshots/share.png" loading="lazy" width="476" height="622" alt="The Share sheet with a QR code and the server's share link"></figure>
+        </div>
+
+        <div class="feature feature-rev feature-wide">
+          <div class="feature-text">
+            <span class="kicker">Bypass rules</span>
+            <h3>Keep chosen traffic off the tunnel.</h3>
+            <p>A domain (with or without <code>*.</code>), an address, or a range such as <code>10.0.0.0/8</code> leaves on your normal connection. Your local network always does.</p>
+          </div>
+          <figure class="feature-shot"><img src="assets/screenshots/rules.png" loading="lazy" width="1040" height="744" alt="Bypass rules for domains, an address and a range, beside the local network ranges that are always bypassed"></figure>
+        </div>
+
+        <ul class="minis">
+          <li><b>Ad blocker &amp; anti-tracker</b><span>Refuse ad networks and the tracking built into systems, devices and apps.</span></li>
+          <li><b>A live map</b><span>You, your servers, and the route your connection takes — drawn locally.</span></li>
+          <li><b>Diagnostics</b><span>The engine log, connection state and exact config, ready for a bug report.</span></li>
+          <li><b>Light and dark</b><span>Follows your system, like this page does.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================ modes -->
+    <section class="section" id="modes" aria-labelledby="modes-h">
+      <div class="wrap">
+        <h2 class="section-title" id="modes-h">Two ways to connect</h2>
+        <p class="section-lede">Switch any time from Settings or the menu-bar panel. Nunya says which one is covering you.</p>
+        <div class="modes">
+          <article class="mode">
+            <header><span class="pill pill-brand">Default</span><h3>Proxy mode</h3></header>
+            <p>Opens a local SOCKS and HTTP port (<code>2080</code> unless you change it). Apps you point at it go through the connection.</p>
+            <ul class="ticks">
+              <li>No password needed</li>
+              <li><b>Set system proxy</b> points your desktop at it while connected (macOS, GNOME, KDE) and puts your own setting back exactly on disconnect</li>
+              <li>Apps that ignore the system proxy aren't covered — and Nunya tells you so</li>
+            </ul>
+          </article>
+          <article class="mode mode-vpn">
+            <header><span class="pill pill-live">Whole device</span><h3>VPN mode</h3></header>
+            <p>Carries all of the device's traffic through the tunnel. It needs system privileges, granted once through your system's own prompt.</p>
+            <ul class="ticks">
+              <li><b>macOS</b>: your administrator password, once (again after each update). Nunya must be in Applications.</li>
+              <li><b>Windows</b>: Windows' own prompt restarts Nunya as administrator.</li>
+              <li><b>Linux</b>: your password through polkit, once (again after each update), from the <code>.deb</code>, <code>.rpm</code> or Arch package.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ protocols -->
+    <section class="section section-alt" id="protocols" aria-labelledby="protocols-h">
+      <div class="wrap">
+        <h2 class="section-title" id="protocols-h">Supported protocols</h2>
+        <dl class="proto">
+          <div class="proto-row"><dt>Protocols</dt><dd><span class="chip">VLESS</span><span class="chip">VMess</span><span class="chip">Trojan</span><span class="chip">WireGuard</span><span class="chip">Cloudflare WARP</span></dd></div>
+          <div class="proto-row"><dt>Transports</dt><dd><span class="chip">TCP</span><span class="chip">WebSocket</span><span class="chip">gRPC</span><span class="chip">HTTP/2</span><span class="chip">HTTPUpgrade</span><span class="chip">QUIC</span><span class="chip">XHTTP</span></dd></div>
+          <div class="proto-row"><dt>Security</dt><dd><span class="chip">TLS</span><span class="chip">Reality</span><span class="chip">uTLS fingerprints</span><span class="chip">ALPN</span></dd></div>
+          <div class="proto-row"><dt>Subscriptions</dt><dd><span class="chip">Share-link lists (plain / base64)</span><span class="chip">Xray JSON</span><span class="chip">sing-box JSON</span><span class="chip">Clash</span><span class="chip">Import links</span></dd></div>
+          <div class="proto-row"><dt>Coming</dt><dd><span class="chip chip-dim">Shadowsocks</span><span class="chip chip-dim">Hysteria2</span><span class="chip chip-dim">TUIC</span><span class="chip chip-dim">SSH</span><span class="chip chip-dim">AmneziaWG</span><span class="chip chip-dim">Proxy chains</span></dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============================================================ privacy -->
+    <section class="section" id="privacy" aria-labelledby="privacy-h">
+      <div class="wrap privacy">
+        <div>
+          <h2 class="section-title" id="privacy-h">Privacy, without the fine print</h2>
+          <p class="section-lede">Nunya is free software under the GPL-3.0. You can read every line of what it does.</p>
+        </div>
+        <ul class="privacy-list">
+          <li><b>No account, no telemetry, no analytics.</b> There is nothing to sign up for.</li>
+          <li><b>Your data stays on your device.</b> Servers, subscriptions and usage live in a file only your user account can read.</li>
+          <li><b>A verified engine.</b> Nunya runs a pinned release of <a href="https://github.com/nunyavpn/nunya-core" rel="noopener">nunya-core</a>, checked against its published checksums, and the app and engine verify each other.</li>
+          <li><b>Honest coverage.</b> The app only says you're protected when the whole device is in the tunnel.</li>
+          <li><b>Location lookups.</b> To place servers on the map, Nunya asks public IP-location services where your servers' addresses are. The map itself is drawn inside the app.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================ download -->
+    <section class="section section-alt" id="download" aria-labelledby="download-h">
+      <div class="wrap">
+        <h2 class="section-title" id="download-h">Download</h2>
+        <p class="section-lede" id="release-line">
+          Builds are published on <a href="https://github.com/nunyavpn/nunya/releases" rel="noopener">GitHub Releases</a>,
+          each with a <code>SHA256SUMS</code> to check your download against.
+        </p>
+
+        <div class="platforms">
+          <article class="platform" data-os="mac">
+            <div class="platform-head">
+              <svg class="os-icon" aria-hidden="true" viewBox="0 0 24 24"><path fill="currentColor" d="M16.37 12.6c-.02-2.28 1.86-3.38 1.95-3.43-1.06-1.55-2.71-1.77-3.3-1.79-1.4-.14-2.74.83-3.45.83-.71 0-1.81-.81-2.97-.79-1.53.02-2.94.89-3.73 2.26-1.59 2.76-.41 6.85 1.14 9.09.76 1.1 1.66 2.33 2.85 2.29 1.14-.05 1.57-.74 2.95-.74 1.38 0 1.77.74 2.97.71 1.23-.02 2.01-1.12 2.76-2.22.87-1.27 1.23-2.5 1.25-2.57-.03-.01-2.4-.92-2.42-3.65zM14.1 5.9c.63-.77 1.06-1.83.94-2.9-.91.04-2.01.61-2.66 1.37-.58.67-1.09 1.76-.95 2.8 1.01.08 2.05-.51 2.67-1.27z"/></svg>
+              <div>
+                <h3>macOS</h3>
+                <p class="platform-req">Apple Silicon · macOS 12 or later</p>
+              </div>
+            </div>
+            <a class="btn btn-primary btn-block" data-asset="mac-dmg" href="https://github.com/nunyavpn/nunya/releases">Download .dmg</a>
+            <ul class="ticks ticks-sm">
+              <li>Updates itself, and never restarts on its own</li>
+              <li>A panel in the menu bar for day-to-day use</li>
+              <li>VPN mode after one administrator prompt</li>
+            </ul>
+            <p class="platform-note">Not yet signed by an Apple Developer account — see the <a href="#guide-mac">first-launch step</a>.</p>
+          </article>
+
+          <article class="platform" data-os="win">
+            <div class="platform-head">
+              <svg class="os-icon" aria-hidden="true" viewBox="0 0 24 24"><path fill="currentColor" d="M3 5.5l7.5-1v7H3v-6zm0 13l7.5 1v-7H3v6zm8.5 1.1L21 21v-8.5h-9.5v7.1zm0-15.2v7.1H21V3l-9.5 1.4z"/></svg>
+              <div>
+                <h3>Windows</h3>
+                <p class="platform-req">x86-64 · Windows 10 or later</p>
+              </div>
+            </div>
+            <a class="btn btn-primary btn-block" data-asset="win-exe" href="https://github.com/nunyavpn/nunya/releases">Download installer</a>
+            <ul class="ticks ticks-sm">
+              <li>Updates itself, and never restarts on its own</li>
+              <li>Keeps running in the tray when you close it</li>
+              <li>VPN mode through Windows' own admin prompt</li>
+            </ul>
+            <p class="platform-note">Not yet code-signed — SmartScreen may ask once. <a href="#guide-win">Here's what to click</a>.</p>
+          </article>
+
+          <article class="platform" data-os="linux">
+            <div class="platform-head">
+              <svg class="os-icon" aria-hidden="true" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2c-2.2 0-3.6 1.9-3.6 4.6 0 1.3.3 2.2-.4 3.4-.8 1.4-2.5 3.2-2.9 5.6-.2 1.2.1 2.2.6 2.9-.6.3-1.6.6-1.6 1.4 0 1 1.7 1 3 1.4 1.1.3 1.9.9 2.8.9.8 0 1.4-.5 2-.6h.2c.6.1 1.2.6 2 .6.9 0 1.7-.6 2.8-.9 1.3-.4 3-.4 3-1.4 0-.8-1-1.1-1.6-1.4.5-.7.8-1.7.6-2.9-.4-2.4-2.1-4.2-2.9-5.6-.7-1.2-.4-2.1-.4-3.4C15.6 3.9 14.2 2 12 2zm-1.3 3.6c.4 0 .6.5.6 1s-.3.9-.6.9-.6-.4-.6-.9.2-1 .6-1zm2.6 0c.4 0 .6.5.6 1s-.3.9-.6.9-.6-.4-.6-.9.2-1 .6-1zM12 8c.8 0 2 .6 2 1s-1.2 1.2-2 1.2-2-.8-2-1.2 1.2-1 2-1z"/></svg>
+              <div>
+                <h3>Linux</h3>
+                <p class="platform-req">Packages for the three big families</p>
+              </div>
+            </div>
+            <div class="pkg-list">
+              <a class="pkg" data-asset="deb-amd64" href="https://github.com/nunyavpn/nunya/releases"><span>Debian / Ubuntu</span><small>.deb · x86-64</small></a>
+              <a class="pkg" data-asset="rpm-x86_64" href="https://github.com/nunyavpn/nunya/releases"><span>Fedora / RHEL / openSUSE</span><small>.rpm · x86-64</small></a>
+              <a class="pkg" data-asset="arch" href="https://github.com/nunyavpn/nunya/releases"><span>Arch / Manjaro</span><small>.pkg.tar.zst · x86-64</small></a>
+            </div>
+            <p class="platform-note">On ARM: <a data-asset="deb-arm64" href="https://github.com/nunyavpn/nunya/releases">arm64 .deb</a> · <a data-asset="rpm-aarch64" href="https://github.com/nunyavpn/nunya/releases">aarch64 .rpm</a></p>
+          </article>
+        </div>
+
+        <div class="verify">
+          <div>
+            <h3>Check your download</h3>
+            <p>Every release lists a SHA-256 for each file. Put <code>SHA256SUMS</code> next to what you downloaded, then run the line for your system. On Windows, compare the hash it prints with the one in the file.</p>
+            <p class="verify-links"><a data-asset="sums" href="https://github.com/nunyavpn/nunya/releases">Download SHA256SUMS</a> · <a href="https://github.com/nunyavpn/nunya/releases" rel="noopener">All releases</a></p>
+          </div>
+          <div class="code-tabs">
+            <div class="code"><span class="code-label">macOS / Linux</span><pre><code>shasum -a 256 -c SHA256SUMS --ignore-missing</code></pre><button class="copy" type="button">Copy</button></div>
+            <div class="code"><span class="code-label">Windows (PowerShell)</span><pre><code>Get-FileHash .\<span data-name="win-exe">Nunya_&lt;version&gt;_x64-setup.exe</span> -Algorithm SHA256</code></pre><button class="copy" type="button">Copy</button></div>
+          </div>
+        </div>
+
+        <aside class="callout">
+          <b>About betas.</b> Nunya is in beta. Every change ships as a new beta, marked <i>Pre-release</i> on GitHub, so take the newest one —
+          the buttons above always point at it. Stable versions, from 1.0 on, will be marked <i>Latest</i>.
+        </aside>
+      </div>
+    </section>
+
+    <!-- ============================================================ guide -->
+    <section class="section" id="guide" aria-labelledby="guide-h">
+      <div class="wrap">
+        <h2 class="section-title" id="guide-h">Install, update and remove</h2>
+        <p class="section-lede">Pick your platform. Each step is the whole step — nothing hidden behind a link.</p>
+
+        <div class="tabs" role="tablist" aria-label="Platform">
+          <button role="tab" id="tab-mac" aria-controls="guide-mac" aria-selected="true">macOS</button>
+          <button role="tab" id="tab-win" aria-controls="guide-win" aria-selected="false" tabindex="-1">Windows</button>
+          <button role="tab" id="tab-linux" aria-controls="guide-linux" aria-selected="false" tabindex="-1">Linux</button>
+        </div>
+
+        <!-- macOS -->
+        <div class="panel" role="tabpanel" id="guide-mac" aria-labelledby="tab-mac">
+          <div class="steps-grid">
+            <article class="steps">
+              <h3><span class="step-badge tone-brand">1</span>Install</h3>
+              <ol>
+                <li>Download <code data-name="mac-dmg">Nunya_&lt;version&gt;_aarch64.dmg</code> and open it.</li>
+                <li>Drag <b>Nunya</b> into <b>Applications</b>. It has to live there for VPN mode to work.</li>
+                <li>Open Nunya. The beta isn't signed by an Apple Developer account yet, so macOS stops it the first time.</li>
+                <li>Go to <b>System Settings → Privacy &amp; Security</b>, scroll down, and choose <b>Open Anyway</b>. You only do this once.</li>
+              </ol>
+              <p class="tip"><b>VPN mode:</b> the first time you connect in VPN mode, Nunya explains why and macOS asks for your administrator password. The password goes to macOS; Nunya never sees it.</p>
+            </article>
+            <article class="steps">
+              <h3><span class="step-badge tone-live">2</span>Update</h3>
+              <ol>
+                <li>Nunya looks for a new release shortly after it starts, then every hour.</li>
+                <li>It downloads the update and checks its signature against the key built into the app.</li>
+                <li>When it's ready, choose <b>Restart to update</b>. Nunya never restarts on its own, so a connection you're using isn't dropped.</li>
+              </ol>
+              <p class="tip">Betas are offered too, unless you turn off <b>Beta versions</b> under <b>Advanced → Updates</b>. VPN mode asks for your password once more after each update. A copy older than the first self-updating version has to be replaced by hand, once.</p>
+            </article>
+            <article class="steps">
+              <h3><span class="step-badge tone-off">3</span>Remove</h3>
+              <ol>
+                <li>Disconnect, then quit from the menu-bar shield → <b>Quit</b> (closing the window leaves it running).</li>
+                <li>Drag <b>Nunya</b> from <b>Applications</b> to the Trash. VPN mode's engine lives inside the app, so it goes too.</li>
+                <li>Optional — to remove your servers and settings as well:</li>
+              </ol>
+              <div class="code"><pre><code>rm -rf ~/Library/Application\ Support/com.nunyavpn.app</code></pre><button class="copy" type="button">Copy</button></div>
+              <p class="tip">Nunya puts your own proxy setting back when it disconnects. If it was quit unexpectedly while connected, check <b>System Settings → Network → (your network) → Details → Proxies</b>.</p>
+            </article>
+          </div>
+        </div>
+
+        <!-- Windows -->
+        <div class="panel" role="tabpanel" id="guide-win" aria-labelledby="tab-win" hidden>
+          <div class="steps-grid">
+            <article class="steps">
+              <h3><span class="step-badge tone-brand">1</span>Install</h3>
+              <ol>
+                <li>Download and run <code data-name="win-exe">Nunya_&lt;version&gt;_x64-setup.exe</code>.</li>
+                <li>The beta isn't code-signed yet, so SmartScreen may stop it the first time: choose <b>More info</b>, then <b>Run anyway</b>.</li>
+                <li>Follow the installer, then start Nunya from the Start menu.</li>
+              </ol>
+              <p class="tip"><b>VPN mode:</b> when you first connect in VPN mode, Windows' own prompt restarts Nunya as administrator. To skip that step each time, right-click Nunya and choose <b>Run as administrator</b>. Use an account that is itself an administrator, so your servers come along.</p>
+            </article>
+            <article class="steps">
+              <h3><span class="step-badge tone-live">2</span>Update</h3>
+              <ol>
+                <li>Nunya looks for a new release shortly after it starts, then every hour.</li>
+                <li>It downloads the update and checks its signature against the key built into the app.</li>
+                <li>When it's ready, choose <b>Restart to update</b>. It never restarts on its own.</li>
+              </ol>
+              <p class="tip">Betas are offered unless you turn off <b>Beta versions</b> under <b>Advanced → Updates</b>. You can also install a newer setup <code>.exe</code> over the top at any time; your servers are kept.</p>
+            </article>
+            <article class="steps">
+              <h3><span class="step-badge tone-off">3</span>Remove</h3>
+              <ol>
+                <li>Disconnect, then quit Nunya from its tray icon → <b>Quit</b>.</li>
+                <li>Open <b>Settings → Apps → Installed apps</b>, find <b>Nunya</b>, and choose <b>⋯ → Uninstall</b> (on Windows 10: <b>Settings → Apps → Apps &amp; features</b>). Tick <b>Delete the application data</b> in the uninstaller to remove your servers too.</li>
+                <li>Optional — to remove your servers and settings as well, in PowerShell:</li>
+              </ol>
+              <div class="code"><pre><code>Remove-Item -Recurse -Force "$env:APPDATA\com.nunyavpn.app", "$env:LOCALAPPDATA\com.nunyavpn.app" -ErrorAction SilentlyContinue</code></pre><button class="copy" type="button">Copy</button></div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Linux -->
+        <div class="panel" role="tabpanel" id="guide-linux" aria-labelledby="tab-linux" hidden>
+          <div class="distros" role="radiogroup" aria-label="Distribution">
+            <label><input type="radio" name="distro" value="deb" checked> Debian / Ubuntu</label>
+            <label><input type="radio" name="distro" value="rpm"> Fedora / RHEL / openSUSE</label>
+            <label><input type="radio" name="distro" value="arch"> Arch / Manjaro</label>
+          </div>
+
+          <div class="steps-grid">
+            <article class="steps">
+              <h3><span class="step-badge tone-brand">1</span>Install</h3>
+              <p>Download the package for your family, then from the folder it's in:</p>
+              <div class="code" data-distro="deb"><pre><code>sudo apt install ./<span data-name="deb-amd64">Nunya_&lt;version&gt;_amd64.deb</span></code></pre><button class="copy" type="button">Copy</button></div>
+              <div class="code" data-distro="rpm" hidden><pre><code>sudo dnf install ./<span data-name="rpm-x86_64">Nunya-&lt;version&gt;-1.x86_64.rpm</span></code></pre><button class="copy" type="button">Copy</button></div>
+              <div class="code" data-distro="arch" hidden><pre><code>sudo pacman -U <span data-name="arch">nunya-&lt;version&gt;-1-x86_64.pkg.tar.zst</span></code></pre><button class="copy" type="button">Copy</button></div>
+              <p class="tip" data-distro="deb">On ARM, use the <code>arm64.deb</code> instead.</p>
+              <p class="tip" data-distro="rpm" hidden>On ARM, use the <code>aarch64.rpm</code> instead. On openSUSE, use <code>sudo zypper install</code> with the same file.</p>
+              <p class="tip" data-distro="arch" hidden>An AUR package, <code>nunya-bin</code>, will follow once AUR registration reopens.</p>
+              <p class="tip"><b>Tray icon:</b> needs <code>libayatana-appindicator3</code>, and on GNOME the AppIndicator extension. Without it there's no icon, and closing the window quits Nunya.<br>
+                <b>VPN mode:</b> needs polkit; your system asks for your password once.</p>
+            </article>
+            <article class="steps">
+              <h3><span class="step-badge tone-live">2</span>Update</h3>
+              <p>On Linux your package manager updates Nunya, not the app itself. Download the newer package and install it over the old one:</p>
+              <div class="code" data-distro="deb"><pre><code>sudo apt install ./<span data-name="deb-amd64">Nunya_&lt;version&gt;_amd64.deb</span></code></pre><button class="copy" type="button">Copy</button></div>
+              <div class="code" data-distro="rpm" hidden><pre><code>sudo dnf install ./<span data-name="rpm-x86_64">Nunya-&lt;version&gt;-1.x86_64.rpm</span></code></pre><button class="copy" type="button">Copy</button></div>
+              <div class="code" data-distro="arch" hidden><pre><code>sudo pacman -U <span data-name="arch">nunya-&lt;version&gt;-1-x86_64.pkg.tar.zst</span></code></pre><button class="copy" type="button">Copy</button></div>
+              <p class="tip">Your servers and settings are kept. VPN mode asks for your password once more after each update, since the update replaces the tunnel engine.</p>
+            </article>
+            <article class="steps">
+              <h3><span class="step-badge tone-off">3</span>Remove</h3>
+              <p>Disconnect and quit Nunya, then:</p>
+              <div class="code" data-distro="deb"><pre><code>sudo apt remove nunya</code></pre><button class="copy" type="button">Copy</button></div>
+              <div class="code" data-distro="rpm" hidden><pre><code>sudo dnf remove nunya</code></pre><button class="copy" type="button">Copy</button></div>
+              <div class="code" data-distro="arch" hidden><pre><code>sudo pacman -R nunya</code></pre><button class="copy" type="button">Copy</button></div>
+              <p>Optional — to remove your servers and settings as well:</p>
+              <div class="code"><pre><code>rm -rf ~/.local/share/com.nunyavpn.app</code></pre><button class="copy" type="button">Copy</button></div>
+              <p class="tip">If Nunya was quit unexpectedly while it had set the system proxy, reset it under your desktop's <b>Settings → Network → Proxy</b>.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ faq -->
+    <section class="section section-alt" id="faq" aria-labelledby="faq-h">
+      <div class="wrap faq-wrap">
+        <h2 class="section-title" id="faq-h">Questions</h2>
+        <div class="faq">
+          <details>
+            <summary>Does Nunya sell a VPN service?</summary>
+            <p>No. Nunya is a client: it connects you through servers you already have, from your provider or your own. It has no servers, accounts or subscriptions of its own.</p>
+          </details>
+          <details>
+            <summary>Why does my system warn me when I open it?</summary>
+            <p>The beta isn't signed with a paid Apple Developer account or a Windows code-signing certificate yet. Check your download against <code>SHA256SUMS</code>, then follow the first-launch step in the <a href="#guide">install guide</a>.</p>
+          </details>
+          <details>
+            <summary>Should I use proxy mode or VPN mode?</summary>
+            <p>Proxy mode needs no password and covers apps that use the system proxy — Nunya tells you which aren't covered. VPN mode covers the whole device and asks for your system's permission once. When in doubt, use VPN mode.</p>
+          </details>
+          <details>
+            <summary>Something doesn't connect. Where do I look?</summary>
+            <p>Open <b>Diagnostics</b> — the pulse icon at the bottom of the left edge. It shows the engine's log, the connection's state, and the exact configuration the server runs with. Include it when you <a href="https://github.com/nunyavpn/nunya/issues" rel="noopener">open an issue</a>.</p>
+          </details>
+          <details>
+            <summary>How can I support Nunya?</summary>
+            <p>Donations are being set up through two channels only: <b>Buy Me a Coffee</b> and <b>crypto wallets</b>. They'll be listed in the README and the app's Support panel once they're open. Anyone asking for payment in Nunya's name anywhere else is not us.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ closing -->
+    <section class="section closing">
+      <div class="wrap closing-inner">
+        <img src="assets/logo.png" width="88" height="88" alt="">
+        <h2>Bring your servers. Nunya does the rest.</h2>
+        <div class="hero-cta">
+          <a class="btn btn-primary btn-lg" href="#download">Download Nunya</a>
+          <a class="btn btn-ghost btn-lg" href="https://github.com/nunyavpn/nunya" rel="noopener">Star on GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <img src="assets/logo.png" width="24" height="24" alt="">
+        <span>Nunya</span>
+        <small>Free software under the GNU GPL v3.0. Began as a fork of <a href="https://github.com/throneproj/Throne" rel="noopener">Throne</a>.</small>
+      </div>
+      <ul class="footer-links">
+        <li><a href="https://github.com/nunyavpn/nunya" rel="noopener">Source</a></li>
+        <li><a href="https://github.com/nunyavpn/nunya-core" rel="noopener">nunya-core</a></li>
+        <li><a href="https://github.com/nunyavpn/nunya/releases" rel="noopener">Releases</a></li>
+        <li><a href="https://github.com/nunyavpn/nunya/issues" rel="noopener">Issues</a></li>
+        <li><a href="https://github.com/nunyavpn/nunya/blob/main/docs/CONTRIBUTING.md" rel="noopener">Contributing</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
